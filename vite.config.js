@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  base: "/A-test-assignment-for-Digital-Element/",
+  base: "/test-for-DigitalElement/",
   root: "src",
   build: {
     outDir: "../dist",
