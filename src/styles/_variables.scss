@@ -1,0 +1,23 @@
+@use 'helpers' as *;
+
+:root{
+    --color-light: #FFFFFF;
+    --color-light-blue: #5A98D0;
+    --color-dark-blue: #316099;
+    --color-text: #1F3F68;
+
+    --border-radius: 10px;
+    --border-radius-block: 200px;
+    --input-border: 1px solid var(--color-text);
+
+    --shadow: 5px 20px 50px 0 rgba(16, 112, 177, 0.2);
+
+    --font-family-main: 'Gilroy', sans-serif;
+
+    --button-height: 68px;
+
+    --transition-duration: 0.2s;
+
+    --container-width: #{rem(1200)};
+    --container-padding-x: #{rem(80)};  
+}

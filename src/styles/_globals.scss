@@ -1,0 +1,49 @@
+@use 'helpers' as *;
+
+body {
+  font-family: var(--font-family-main);
+  font-weight: 400;
+  font-size: 16px;
+  background-color: var(--color-light);
+  line-height: 1.75;
+  min-width: 320px;
+  overflow-x: hidden;
+}
+
+a,
+button,
+input,
+textarea,
+svg * {
+  transition-duration: var(--transition-duration);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+::-webkit-scrollbar {
+  width: rem(10);
+  height: rem(10);
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(49, 96, 153, 0.08);
+  border-radius: rem(6);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-dark-blue);
+  border-radius: rem(6);
+  border: rem(2) solid rgba(49, 96, 153, 0.08);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-light-blue);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-dark-blue) rgba(49, 96, 153, 0.08);
+}

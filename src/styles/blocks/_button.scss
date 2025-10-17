@@ -1,0 +1,24 @@
+@use '../helpers' as *;
+
+
+.button {
+  border-radius: var(--border-radius);
+  border: none;
+  background-color: var(--color-light-blue);
+  color: var(--color-light);
+  letter-spacing: 0.04em;
+  text-align: center;
+  width: rem(220);
+  height: rem(56);
+  @include flex-center;
+
+  @include hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(98, 145, 198, 0.3);
+  }
+
+  @include mobile {
+    width: rem(180);
+    height: rem(48);
+  }
+}

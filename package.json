@@ -1,0 +1,23 @@
+{
+  "name": "test-task",
+  "version": "1.0.0",
+  "description": "",
+  "main": "postcss.config.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint src --ext .js,.ts,.jsx,.tsx",
+    "lint:fix": "eslint src --ext .js,.ts,.jsx,.tsx --fix"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@delement/eslint-config-master": "^1.2.0",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.37.0",
+    "postcss": "^8.5.6",
+    "sass": "^1.93.2",
+    "vite": "^7.1.9"
+  }
+}

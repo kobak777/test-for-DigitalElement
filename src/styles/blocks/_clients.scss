@@ -1,0 +1,118 @@
+@use '../helpers' as *;
+
+.clients {
+  background-color: var(--color-light-blue);
+  border-top-left-radius: var(--border-radius-block);
+  padding-block: rem(120) rem(80);
+
+  &__container {
+    width: 100%;
+  }
+
+  &__preview {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: rem(40);
+    margin-bottom: rem(48);
+
+    @include tablet {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: rem(24);
+    }
+  }
+
+  &__preview-title {
+    flex-shrink: 0;
+    max-width: rem(280);
+    @include fluid-text(36, 24);
+    font-weight: 700;
+    color: var(--color-light);
+  }
+
+  &__preview-text {
+    max-width: rem(540);
+    @include fluid-text(16, 14);
+    line-height: 162%;
+    color: var(--color-light);
+    opacity: 0.6;
+  }
+
+  &__logos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, auto);
+    width: 100%;
+    margin-top: rem(32);
+    gap: 0;
+
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(4, auto);
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+    }
+  }
+
+  &__logo {
+    @include flex-center;
+    padding: rem(16);
+    color: var(--color-light);
+    font-weight: 600;
+    @include fluid-text(20, 14);
+    line-height: 230%;
+    letter-spacing: 0.02em;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+
+    &:nth-child(-n + 4) {
+      border-top: none;
+    }
+    &:nth-last-child(-n + 4) {
+      border-bottom: none;
+    }
+    &:nth-child(4n + 1) {
+      border-left: none;
+    }
+    &:nth-child(4n) {
+      border-right: none;
+    }
+
+    @include hover {
+      background-color: rgba(31, 63, 104, 0.2);
+    }
+
+    @include tablet {
+      &:nth-child(-n + 2) {
+        border-top: none;
+      }
+      &:nth-last-child(-n + 2) {
+        border-bottom: none;
+      }
+      &:nth-child(2n + 1) {
+        border-left: none;
+      }
+      &:nth-child(2n) {
+        border-right: none;
+      }
+    }
+
+    @include mobile {
+      border-left: none;
+      border-right: none;
+
+      &:first-child {
+        border-top: none;
+      }
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+}

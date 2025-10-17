@@ -1,0 +1,130 @@
+@use '../helpers' as *;
+
+.header {
+  width: 100%;
+  background: var(--color-light);
+  position: relative;
+  z-index: 100;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;  
+    height: rem(72);
+    padding: rem(40) rem(83) rem(8) rem(83);
+    position: relative;
+
+    @include tablet {
+      padding: rem(20) rem(24);
+      height: rem(60);
+    }
+
+    @include mobile {
+      padding: rem(16);
+    }
+  }
+
+  &__menu {
+    appearance: none;
+    border: none;
+    background-color: transparent; 
+    padding: 0;
+    @include box(rem(32));  
+    cursor: pointer;
+    z-index: 150;
+    @include flex-center();  
+
+    border-radius: var(--border-radius);  
+    transition: 
+      transform var(--transition-duration) ease, 
+      box-shadow var(--transition-duration) ease, 
+      background-color var(--transition-duration) ease;
+
+    @include hover {
+      transform: scale(1.1);
+      box-shadow: 0 rem(4) rem(12) rgba(0, 0, 0, 0.15);
+      background-color: rgba(53, 110, 173, 0.1);
+    }
+
+    svg {
+      width: rem(24);
+      height: rem(16);
+
+      .line {
+        fill: none;
+        stroke: var(--color-dark-blue);
+        stroke-width: rem(2);
+        stroke-linecap: round;
+        transition: stroke var(--transition-duration) ease;
+        transform-origin: center;
+      }
+    }
+
+    &.active svg .line {
+      stroke: var(--color-light-blue);
+    }
+
+    &.active {
+      .line--top {
+        transform: translateY(rem(6)) rotate(45deg);
+      }
+      .line--middle {
+        opacity: 0;
+      }
+      .line--bottom {
+        transform: translateY(rem(-6)) rotate(-45deg);
+      }
+    }
+  }
+
+  &__nav {
+    position: absolute;
+    top: calc(100% + rem(8));
+    right: 0;
+    width: rem(220);
+    background: var(--color-light);
+    border-radius: var(--border-radius);
+    box-shadow: 0 rem(8) rem(24) rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 120;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(rem(-10));
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+
+    &.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    &-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        border-bottom: rem(1) solid rgba(0, 0, 0, 0.05);
+
+        a {
+          display: block;
+          padding: rem(12) rem(20);
+          text-decoration: none;
+          color: var(--color-dark-blue);
+          transition: background 0.3s, color 0.3s;
+
+          @include hover {
+            background: var(--color-light-blue);
+            color: var(--color-light);
+          }
+        }
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+}

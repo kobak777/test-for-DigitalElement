@@ -1,0 +1,17 @@
+@use 'normalize';
+@use 'fonts';
+@use 'variables';
+@use 'utils';
+@use 'globals';
+
+@use 'blocks/button';
+@use 'blocks/header';
+@use 'blocks/hero';
+@use 'blocks/services';
+@use 'blocks/card';
+@use 'blocks/clients';
+@use 'blocks/footer';
+@use 'blocks/scrollarrow';
+@use 'blocks/modal';
+@use 'blocks/contact-form';
+@use 'blocks/success-popup';

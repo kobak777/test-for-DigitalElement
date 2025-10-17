@@ -1,0 +1,40 @@
+@use '../helpers' as *;
+
+.scroll-top {
+  position: fixed;
+  bottom: rem(40);
+  right: rem(40);
+  width: rem(50);
+  height: rem(50);
+  border: none;
+  border-radius: 50%;
+  background-color: var(--color-text);
+  color: var(--color-light);
+  font-size: rem(24);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.3s ease;
+  z-index: 999;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  @include tablet {
+    bottom: rem(30);
+    right: rem(30);
+    width: rem(40);
+    height: rem(40);
+    font-size: rem(20);
+  }
+
+  @include mobile {
+    display: none;
+  }
+
+  @include hover {
+    background-color: var(--color-dark-blue);
+  }
+}
