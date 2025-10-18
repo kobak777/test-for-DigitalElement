@@ -9,7 +9,9 @@ body {
   min-width: 320px;
   overflow-x: hidden;
 }
-
+html, body {
+  height: 100%;
+}
 a,
 button,
 input,
