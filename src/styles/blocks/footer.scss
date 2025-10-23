@@ -3,6 +3,7 @@
 .footer {
   background-color: var(--color-light-blue);
   padding-top: rem(64);
+
   &__background {
     background-color: var(--color-dark-blue);
     border-top-right-radius: var(--border-radius-block);
@@ -72,7 +73,6 @@
     border: none;
     height: 1px;
     background: rgba(255, 255, 255, 0.4);
-    
     box-sizing: border-box;
     margin: rem(32) 0;
     width: calc(100% - rem(120));  
@@ -137,12 +137,6 @@
     opacity: 0.8;
   }
 
-  &__contact-content {
-    @include fluid-text(16, 14);
-    opacity: 0.8;
-    line-height: 1.5;
-  }
-
   &__about,
   &__follow {
     display: flex;
@@ -167,6 +161,28 @@
       @include hover {
         opacity: 1;
       }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+        opacity: 0.8;
+        transition: opacity var(--transition-duration);
+
+        @include hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &__contact-link {
+    color: inherit;
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity var(--transition-duration);
+
+    @include hover {
+      opacity: 1;
     }
   }
 

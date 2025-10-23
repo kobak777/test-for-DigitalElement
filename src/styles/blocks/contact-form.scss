@@ -47,7 +47,7 @@
       }
 
       &.error {
-        border-color: #e74c3c;
+        border-color: var(--color-error-dark);
         box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.15);
       }
     }
@@ -118,7 +118,7 @@
   }
 
   &__error {
-    color: #e74c3c;
+    color: var(--color-error-dark);
     font-size: rem(14);
     margin-top: rem(8);
     display: block;

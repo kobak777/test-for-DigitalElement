@@ -56,13 +56,6 @@
     opacity: 0.6;
   }
 
-  &__button {
-    @include flex-center();
-    @include mobile {
-      width: 100%;
-    }
-  }
-
   &__image-wrapper {
     position: absolute;
     right: rem(20);

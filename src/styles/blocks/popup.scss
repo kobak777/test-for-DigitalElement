@@ -1,15 +1,20 @@
 @use '../helpers' as *;
 
-.success-popup {
+.status-popup {
   position: fixed;
   inset: 0;
   display: none;
   justify-content: center;
   align-items: center;
   z-index: 10000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 
   &.active {
     display: flex;
+    opacity: 1;
+    visibility: visible;
   }
 
   &__overlay {
@@ -55,68 +60,45 @@
     width: rem(64);
     height: rem(64);
     margin: 0 auto rem(20);
-    background: linear-gradient(135deg, var(--color-light-blue), var(--color-dark-blue));
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: rem(32);
+    font-weight: bold;
+    color: var(--color-light);
+    background: linear-gradient(135deg, var(--color-light-blue), var(--color-dark-blue));
     box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
-
-    &::before {
-      content: '✓';
-      color: white;
-      font-size: rem(32);
-      font-weight: bold;
-    }
 
     @include tablet {
       width: rem(56);
       height: rem(56);
-      &::before {
-        font-size: rem(28);
-      }
+      font-size: rem(28);
     }
 
     @include mobile {
       width: rem(48);
       height: rem(48);
-      &::before {
-        font-size: rem(24);
-      }
+      font-size: rem(24);
     }
 
     @include small-mobile {
       width: rem(40);
       height: rem(40);
-      &::before {
-        font-size: rem(20);
-      }
+      font-size: rem(20);
     }
   }
 
   &__message {
-    margin: 0 0 rem(30) 0;
+    margin-bottom: rem(30);
     font-weight: 600;
     @include fluid-text(20, 16);
     line-height: 1.5;
     letter-spacing: 0.04em;
     color: var(--color-dark-blue);
-
-    @include tablet {
-      font-size: rem(18);
-    }
-
-    @include mobile {
-      font-size: rem(16);
-    }
-
-    @include small-mobile {
-      font-size: rem(14);
-    }
   }
 
   &__close {
-    display: inline-block;
     border: 0;
     border-radius: var(--border-radius);
     background: var(--color-light-blue);
@@ -149,6 +131,26 @@
     @include mobile {
       padding: rem(10) rem(20);
       font-size: rem(12);
+    }
+  }
+
+  &--error {
+    .status-popup__icon {
+      background: linear-gradient(135deg, var(--color-error-light), var(--color-error-dark));
+      box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
+      color: var(--color-light);
+    }
+
+    .status-popup__message {
+      color: var(--color-error-dark);
+    }
+
+    .status-popup__close {
+      background: var(--color-error-dark);
+
+      @include hover {
+        background-color: var(--color-error-hover);
+      }
     }
   }
 }

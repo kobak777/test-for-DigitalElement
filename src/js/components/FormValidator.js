@@ -1,22 +1,23 @@
 /**
- * Валидация формы
+ * Валидация формы и отправка данных
  */
 export default class FormValidator {
 
-  constructor(formSelector, { onSuccess } = {}) {
+  constructor(formSelector, { onSuccess, onError } = {}) {
     this.form = document.querySelector(formSelector);
     if (!this.form) {
       return; 
     }
 
     this.onSuccess = onSuccess;
-    this.submitButton = this.form.querySelector(".contact-form__submit");
+    this.onError = onError;
+    this.submitButton = this.form.querySelector("#contactFormSubmit");
     this.handleSubmit = this.handleSubmit.bind(this);
     this.form.addEventListener("submit", this.handleSubmit);
   }
 
   validateInput(input) {
-    const errorSpan = input.nextElementSibling;
+    const errorSpan = this.form.querySelector(`[data-error-for="${input.name}"]`);
     const value = input.value.trim();
     let isValid = true;
 
@@ -53,38 +54,26 @@ export default class FormValidator {
   }
 
   validateAllFields() {
-    const inputs = this.form.querySelectorAll("input, textarea");
-    let allValid = true;
-
-    inputs.forEach((input) => {
-      const isValid = this.validateInput(input);
-      if (!isValid) {
-        allValid = false; 
-      }
-    });
-
-    return allValid;
+    return Array.from(this.form.querySelectorAll("input, textarea"))
+      .map((input) => this.validateInput(input))
+      .every(Boolean);
   }
 
   async sendFormData(formData) {
     try {
+      const dataObj = Object.fromEntries(formData.entries());
+      dataObj.timestamp = new Date().toISOString();
+
       const response = await fetch("https://jsonplaceholder.typicode.com/posts", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          fullName: formData.get("fullName"),
-          email: formData.get("email"),
-          message: formData.get("message"),
-          timestamp: new Date().toISOString(),
-        }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(dataObj),
       });
 
       if (!response.ok) {
         throw new Error(`HTTP error: ${response.status}`); 
       }
-      
+
       await response.json();
       return true;
     } catch {
@@ -96,7 +85,6 @@ export default class FormValidator {
     if (!this.submitButton) {
       return; 
     }
-    
     this.submitButton.disabled = loading;
     this.submitButton.textContent = loading ? "Sending..." : "SUBMIT";
   }
@@ -105,7 +93,6 @@ export default class FormValidator {
     event.preventDefault();
 
     const allFieldsValid = this.validateAllFields();
-
     if (!allFieldsValid) {
       return; 
     }
@@ -117,9 +104,15 @@ export default class FormValidator {
 
     this.setButtonState(false);
 
-    if (sendSuccess && typeof this.onSuccess === "function") {
+    if (sendSuccess) {
       this.form.reset();
-      this.onSuccess();
+      if (typeof this.onSuccess === "function") {
+        this.onSuccess();
+      }
+    } else {
+      if (typeof this.onError === "function") {
+        this.onError();
+      }
     }
   }
 

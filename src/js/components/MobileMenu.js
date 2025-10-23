@@ -20,6 +20,14 @@ export default class MobileMenu {
     window.addEventListener("scroll", this.closeOnScroll);
   }
 
+  open() {
+    this.menu.classList.add("active");
+  }
+
+  close() {
+    this.menu.classList.remove("active");
+  }
+
   toggleMenu(event) {
     event.stopPropagation();
     this.menu.classList.toggle("active");
@@ -27,13 +35,13 @@ export default class MobileMenu {
 
   closeOnClickOutside(event) {
     if (!this.menu.contains(event.target) && event.target !== this.button) {
-      this.menu.classList.remove("active");
+      this.close();
     }
   }
 
   closeOnScroll() {
     if (this.button.getBoundingClientRect().bottom < 0) {
-      this.menu.classList.remove("active");
+      this.close();
     }
   }
 
