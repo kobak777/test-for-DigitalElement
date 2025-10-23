@@ -4,23 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Afrianska</title>
-    <script type="module" crossorigin src="/test-for-DigitalElement/assets/index-BVgBSML0.js"></script>
-    <link rel="stylesheet" crossorigin href="/test-for-DigitalElement/assets/index-BLnUUSgd.css">
+    <script type="module" crossorigin src="/test-for-DigitalElement/assets/index-dlTdfaqT.js"></script>
+    <link rel="stylesheet" crossorigin href="/test-for-DigitalElement/assets/index-71I050M9.css">
   </head>
   <body>
     <header class="header" role="banner" id="home">
       <div class="header__inner">
-        <a class="header__logo logo" href="/" aria-label="Homepage">
+        <a class="header__logo logo" href="https://kobak777.github.io/test-for-DigitalElement/" aria-label="Homepage">
           <img src="data:image/svg+xml,%3csvg%20width='48'%20height='48'%20viewBox='0%200%2048%2048'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_1_283)'%3e%3ccircle%20cx='16'%20cy='24'%20r='16'%20fill='%23316099'/%3e%3ccircle%20cx='32'%20cy='24'%20r='15'%20fill='white'%20stroke='%23316099'%20stroke-width='2'/%3e%3cpath%20d='M39.3%2030L34.38%2016H30.96L26.06%2030H29.04L29.88%2027.48H35.46L36.3%2030H39.3ZM32.68%2019.18L34.6%2024.9H30.76L32.68%2019.18Z'%20fill='%23316099'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_1_283'%3e%3crect%20width='48'%20height='48'%20fill='white'%20transform='matrix(1%200%200%20-1%200%2048)'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e" alt="Логотип" width="48" height="48" />
         </a>
 
-        <button class="header__menu" aria-label="Меню">
+        <button id="headerMenuBtn" class="header__menu" aria-label="Меню">
           <svg width="24" height="16" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0 16H24V13.3333H0V16ZM0 9.33333H24V6.66667H0V9.33333ZM0 0V2.66667H24V0H0Z" fill="#356EAD"/>
           </svg>
         </button>
 
-        <nav class="header__nav">
+        <nav id="headerNav" class="header__nav">
           <ul class="header__nav-list">
             <li><a href="#home">Home</a></li>
             <li><a href="#services">Services</a></li>
@@ -32,14 +32,14 @@
     </header>
 
     <main class="main" role="main">
-      <section class="hero" aria-label="Hero">
+      <section class="hero" data-scroll-trigger aria-label="Hero">
         <div class="hero__content container">
           <div class="hero__text">
             <h1 class="hero__slogan">New Automation Tool for Your Home</h1>
             <p class="hero__description">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus tristique vulputate ultrices ut mauris tellus at. Posuere sollicitudin odio tellus elit.
             </p>
-            <button class="hero__button button">See Our Project</button>
+            <a href="#projects" class="hero__link button">See Our Project</a>
           </div>
 
           <div class="hero__image-wrapper">
@@ -146,25 +146,26 @@
 
         <div class="footer__container container">
           <div class="footer__info">
-            <div class="footer__contacts">
+            <address class="footer__contacts">
               <div class="footer__logo-container">
                 <img src="data:image/svg+xml,%3csvg%20width='48'%20height='48'%20viewBox='0%200%2048%2048'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_1_524)'%3e%3ccircle%20cx='16'%20cy='24'%20r='16'%20fill='%2398C3E8'/%3e%3ccircle%20cx='32'%20cy='24'%20r='15'%20fill='white'%20stroke='%23316099'%20stroke-width='2'/%3e%3cpath%20d='M38.3%2031L33.38%2017H29.96L25.06%2031H28.04L28.88%2028.48H34.46L35.3%2031H38.3ZM31.68%2020.18L33.6%2025.9H29.76L31.68%2020.18Z'%20fill='%23316099'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_1_524'%3e%3crect%20width='48'%20height='48'%20fill='white'%20transform='matrix(1%200%200%20-1%200%2048)'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e" alt="Логотип" class="footer__logo" />
                 <h3 class="footer__company-name">Afrianska</h3>
               </div>
-
               <div class="footer__contact-info">
                 <h3 class="footer__contact-type">A.</h3>
-                <p class="footer__contact-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <a href="https://maps.google.com" target="_blank" rel="noopener" class="footer__contact-link"> 
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                </a>
               </div>
               <div class="footer__contact-info">
                 <h3 class="footer__contact-type">T.</h3>
-                <p class="footer__contact-content">+62-812-7313-4321</p>
+                <a href="tel:+6281273134321" class="footer__contact-link">+62-812-7313-4321 </a>
               </div>
               <div class="footer__contact-info">
                 <h3 class="footer__contact-type">E.</h3>
-                <p class="footer__contact-content">hello.afrian@gmail.com</p>
+                <a href="mailto:hello.afrian@gmail.com" class="footer__contact-link">hello.afrian@gmail.com</a>
               </div>
-            </div>
+            </address>
 
             <div class="footer__about">
               <h3 class="footer__label">About Us</h3>
@@ -193,39 +194,41 @@
     </footer>
 
     <div class="modal" id="contactModal" aria-hidden="true">
-      <div class="modal__overlay"></div>
+      <div class="modal__overlay" data-modal-overlay></div>
       <div class="modal__content">
-        <button class="modal__close" aria-label="Close">&times;</button>
+        <button class="modal__close" data-modal-close aria-label="Close">&times;</button>
         <div class="contact-form">
           <h2 class="contact-form__title">SEND US MESSAGE</h2>
           <form class="contact-form__form" id="contactForm" novalidate autocomplete="off">
             <div class="contact-form__field">
               <label class="contact-form__label" for="fullName">Full Name</label>
               <input class="contact-form__input" type="text" id="fullName" name="fullName" placeholder="Your Name" autocomplete="off" onpaste="return false;" />
-              <span class="contact-form__error"></span>
+              <span class="contact-form__error" data-error-for="fullName"></span>
             </div>
             <div class="contact-form__field">
               <label class="contact-form__label" for="email">Email</label>
               <input class="contact-form__input" type="email" id="email" name="email" placeholder="Your Email" autocomplete="off" onpaste="return false;" />
-              <span class="contact-form__error"></span>
+              <span class="contact-form__error" data-error-for="email"></span>
             </div>
             <div class="contact-form__field">
               <label class="contact-form__label" for="message">Message</label>
               <textarea class="contact-form__textarea" id="message" name="message" placeholder="Your Message" autocomplete="off" onpaste="return false;"></textarea>
-              <span class="contact-form__error"></span>
+              <span class="contact-form__error" data-error-for="message"></span>
             </div>
-            <button class="contact-form__submit" type="submit">SUBMIT</button>
+            <button id="contactFormSubmit" class="contact-form__submit" type="submit">SUBMIT</button>
           </form>
         </div>
       </div>
     </div>
 
-    <div class="success-popup" id="successPopup" aria-hidden="true">
-      <div class="success-popup__overlay"></div>
-      <div class="success-popup__content">
-        <div class="success-popup__icon"></div>
-        <p class="success-popup__message">Your message successfully sent</p>
-        <button class="success-popup__close">Close</button>
+    <div class="status-popup" id="statusPopup" aria-hidden="true">
+      <div class="status-popup__overlay" data-status-overlay></div>
+      <div class="status-popup__content">
+        <div class="status-popup__icon" data-status-icon></div>
+        <p class="status-popup__message" data-status-message>
+          Your message successfully sent
+        </p>
+        <button class="status-popup__close" data-status-close>Close</button>
       </div>
     </div>
 
